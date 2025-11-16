@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apa itu ECC (Elliptic Curve Cryptography)?</title>
+    <!-- Menggunakan file CSS yang sama untuk konsistensi -->
+    <link rel="stylesheet" href="style_article1.css">
+</head>
+<body class="article-page-body">
+    <div class="article-content">
+        <a href="index.html" class="back-button">← Kembali ke Home</a>
+        
+        <h2>Apa itu ECC (Elliptic Curve Cryptography)?</h2>
+        
+        <p>
+            <strong>ECC (Elliptic Curve Cryptography)</strong> adalah sebuah metode kriptografi kunci publik yang modern dan sangat efisien. Jika RSA adalah sistem kunci publik yang telah lama dikenal, maka ECC adalah penerusnya yang menawarkan keamanan setara dengan ukuran kunci yang jauh lebih kecil. Inilah alasan mengapa ECC menjadi pilihan utama di banyak sistem keamanan modern, terutama di perangkat dengan sumber daya terbatas seperti ponsel pintar dan perangkat IoT.
+        </p>
+
+        <h3>Bagaimana Cara Kerjanya? Analogi Kotak Surat</h3>
+        <p>
+            Untuk memahami ECC, bayangkan Anda memiliki sebuah kotak surat ajaib:
+        </p>
+        <ul>
+            <li><strong>Private Key (Kunci Pribadi):</strong> Ini adalah kunci fisik yang hanya Anda miliki. Hanya Anda yang bisa membuka kotak surat ini dan membaca isinya. Anda harus menjaga kunci ini dengan sangat ketat.</li>
+            <li><strong>Public Key (Kunci Publik):</strong> Ini adalah alamat kotak surat Anda. Anda bisa memberikan alamat ini kepada siapa saja di dunia. Orang lain bisa menggunakan alamat ini untuk mengirimkan surat kepada Anda, tetapi mereka tidak bisa membuka kotak surat orang lain atau membaca surat di dalamnya.</li>
+        </ul>
+
+        <h3>Penggunaan Utama: Tanda Tangan Digital</h3>
+        <p>
+            Salah satu penggunaan paling penting dari ECC adalah untuk membuat <strong>tanda tangan digital</strong>. Prosesnya bekerja seperti ini:
+        </p>
+        <ol>
+            <li>Anda menulis sebuah pesan digital (misalnya, sebuah kontrak atau transaksi).</li>
+            <li>Anda menggunakan <strong>Private Key</strong> Anda untuk "menandatangani" pesan tersebut. Proses ini akan menghasilkan sebuah "tanda tangan" yang unik, yang hanya bisa dibuat oleh Anda.</li>
+            <li>Anda mengirimkan pesan asli, tanda tangan digital, dan <strong>Public Key</strong> Anda kepada penerima.</li>
+            <li>Penerima menggunakan <strong>Public Key</strong> Anda untuk memverifikasi tanda tangan tersebut. Jika valid, penerima bisa yakin dua hal: (1) Pesan benar-benar berasal dari Anda (otentikasi), dan (2) Pesan tidak diubah selama perjalanan (integritas).</li>
+        </ol>
+
+        <h3>Keunggulan ECC dibandingkan Metode Lain</h3>
+        <p>
+            Mengapa ECC begitu populer? Ada beberapa alasan kuat:
+        </p>
+        <ul>
+            <li><strong>Kunci yang Lebih Kecil:</strong> ECC memberikan tingkat keamanan yang sangat tinggi dengan ukuran kunci yang jauh lebih kecil. Sebagai perbandingan, kunci ECC 256-bit dianggap seaman dengan kunci RSA 3072-bit. Ini menghemat ruang penyimpanan dan bandwidth.</li>
+            <li><strong>Lebih Cepat:</strong> Karena ukuran kunci yang lebih kecil, proses pembuatan kunci, penandatanganan, dan verifikasi menjadi lebih cepat. Ini sangat krusial untuk aplikasi yang membutuhkan performa tinggi.</li>
+            <li><strong>Hemat Energi:</strong> Komputasi yang lebih cepat dan lebih ringan berarti lebih sedikit daya yang dibutuhkan. Ini membuat ECC menjadi pilihan ideal untuk perangkat baterai seperti ponsel, kartu pintar, dan sensor IoT.</li>
+        </ul>
+
+        <h3>Di Mana ECC Digunakan?</h3>
+        <p>
+            ECC adalah teknologi yang mendasari banyak keamanan digital yang kita gunakan sehari-hari:
+        </p>
+        <ul>
+            <li><strong>Mata Uang Kripto:</strong> Bitcoin dan Ethereum menggunakan ECC (khususnya kurva secp256k1) untuk menghasilkan pasangan kunci bagi setiap pengguna.</li>
+            <li><strong>Protokol Keamanan Internet:</strong> Digunakan dalam TLS/SSL untuk mengamankan koneksi HTTPS di website modern.</li>
+            <li><strong>Aplikasi Pesan Aman:</strong> Aplikasi seperti Signal dan WhatsApp menggunakan ECC untuk enkripsi ujung-ke-ujung.</li>
+            <li><strong>Tanda Tangan Digital Dokumen:</strong> Digunakan untuk menandatangani dokumen secara elektronik dengan validitas hukum.</li>
+        </ul>
+
+        <p>
+            Secara singkat, ECC adalah teknologi kriptografi yang kuat, efisien, dan menjadi standar industri untuk menjaga keamanan dan privasi di era digital.
+        </p>
+
+        <a href="index.html#tab-ecc" class="card-action-button">Coba Verifikasi ECC</a>
+    </div>
+</body>
+</html>

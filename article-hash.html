@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apa itu SHA-256 (Hashing)?</title>
+    <!-- Menggunakan file CSS yang sama untuk konsistensi format -->
+    <link rel="stylesheet" href="style_article1.css">
+</head>
+<body class="article-page-body">
+    <div class="article-content">
+        <a href="index.html" class="back-button">← Kembali ke Home</a>
+        
+        <h2>Apa itu SHA-256 (Hashing)?</h2>
+        
+        <p>
+            SHA-256 (Secure Hash Algorithm 256-bit) adalah seperti <strong>sidik jari digital</strong> untuk data. Ini adalah fungsi matematika yang mengambil input data dalam berbagai ukuran (teks, gambar, file) dan menghasilkan output dengan ukuran yang selalu sama, yaitu 256 bit (atau 64 karakter heksadesimal).
+        </p>
+
+        <h3>Mengapa SHA-256 Sangat Penting?</h3>
+        <p>
+            Keandalan SHA-256 terletak pada beberapa sifat krusial yang membuatnya menjadi fondasi bagi banyak teknologi keamanan, termasuk blockchain:
+        </p>
+        <ul>
+            <li><strong>Deterministik:</strong> Input yang sama akan <strong>selalu</strong> menghasilkan hash yang sama. Jika Anda meng-hash "Hello World" hari ini, hasilnya akan sama persis sepuluh tahun lagi.</li>
+            <li><strong>Tidak Dapat Dibalik (One-Way Function):</strong> Anda tidak bisa menggunakan hash untuk menemukan data aslinya. Ini seperti mencoba membuat telur utuh dari telur dadar yang sudah diaduk—mustahil.</li>
+            <li><strong>Ukuran Output Tetap:</strong> Baik Anda meng-hash satu kata atau seluruh buku, outputnya akan selalu memiliki panjang 256 bit. Ini membuatnya sangat efisien untuk dibandingkan dan disimpan.</li>
+            <li><strong>Efek Avalanche:</strong> Perubahan sekecil apa pun pada data input (bahkan hanya mengubah satu huruf besar menjadi huruf kecil) akan menghasilkan hash yang <strong>total berbeda</strong> dan tidak terprediksi. Inilah yang membuat blockchain aman dari perubahan.</li>
+        </ul>
+
+        <h3>Contoh Praktis: Efek Avalanche</h3>
+        <p>
+            Lihat betapa berbedanya hasil hashnya meskipun hanya satu karakter yang berubah:
+        </p>
+        <blockquote class="hash-example">
+            <p>Input: <code>Hello World</code></p>
+            <p>Hash: <span class="hash-output">a591a6d40bf420404a011733cfb7b190d62c65bf0bcda32b57b277d9ad9f146e</span></p>
+        </blockquote>
+        <blockquote class="hash-example">
+            <p>Input: <code>hello world</code> (hanya 'h' yang menjadi huruf kecil)</p>
+            <p>Hash: <span class="hash-output">64ec88ca00b268e5ba1a35678a1b5316d212f4f366b247724e7d5a5a9d3e6e3</span></p>
+        </blockquote>
+
+        <h3>Penerapan dalam Teknologi</h3>
+        <p>
+            SHA-256 bukan hanya untuk blockchain. Teknologi ini banyak digunakan di berbagai bidang:
+        </p>
+        <ul>
+            <li><strong>Keamanan Kata Sandi:</strong> Situs web tidak menyimpan kata sandi Anda secara langsung, melainkan menyimpan hash-nya. Saat login, sistem meng-hash kata sandi yang Anda masukkan dan membandingkannya dengan hash yang tersimpan.</li>
+            <li><strong>Verifikasi Integritas File:</strong> Saat mengunduh perangkat lunak, Anda sering melihat "checksum" atau "hash". Anda bisa meng-hash file yang Anda unduh dan membandingkannya dengan hash resmi untuk memastikan file tidak diubah atau rusak.</li>
+            <li><strong>Blockchain dan Kriptografi:</strong> Ini adalah jantung dari Bitcoin dan banyak cryptocurrency lainnya. Setiap transaksi di-hash dan digunakan untuk menghubungkan satu blok ke blok berikutnya, menciptakan rantai yang aman dan tidak dapat diubah.</li>
+        </ul>
+
+        <hr>
+
+        <h3>Coba Sendiri: Hash Generator</h3>
+        <p>
+            Ketik teks apa pun di bawah ini dan lihat hash SHA-256-nya terbentuk secara real-time.
+        </p>
+        <div class="demo-section">
+            <label for="demo-input">Teks Anda:</label>
+            <textarea id="demo-input" rows="4" placeholder="Ketik sesuatu di sini..."></textarea>
+            
+            <label>Hasil Hash SHA-256:</label>
+            <div id="demo-output" class="output"></div>
+        </div>
+
+        <a href="index.html#tab-hash" class="card-action-button">Coba Simulasi Hash</a>
+    </div>
+
+    <script>
+        // Fungsi SHA-256
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            return hashHex;
+        }
+
+        // Event Listener untuk demo
+        document.addEventListener('DOMContentLoaded', () => {
+            const input = document.getElementById('demo-input');
+            const output = document.getElementById('demo-output');
+
+            input.addEventListener('input', async () => {
+                const hash = await sha256(input.value);
+                output.textContent = hash;
+            });
+        });
+    </script>
+</body>
+</html>

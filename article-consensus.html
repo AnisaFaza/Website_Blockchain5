@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apa itu Konsensus?</title>
+    <!-- Menggunakan file CSS yang sama untuk konsistensi -->
+    <link rel="stylesheet" href="style_article1.css">
+</head>
+<body class="article-page-body">
+    <div class="article-content">
+        <a href="index.html" class="back-button">← Kembali ke Home</a>
+        
+        <h2>Apa itu Konsensus?</h2>
+        
+        <p>
+            Dalam dunia blockchain yang <strong>desentralisasi</strong> (tidak ada pemimpin), kita membutuhkan cara untuk semua peserta (node) mencapai kesepakatan tentang satu kebenaran. <strong>Konsensus</strong> adalah seperangkat aturan dan protokol yang memungkinkan jaringan komputer yang saling tidak percaya untuk setuju tentang status buku besar (ledger) yang sama.
+        </p>
+
+        <p>
+            Bayangkan sebuah grup teman yang ingin memutuskan film apa yang akan ditonton, tetapi tidak ada yang mau menjadi penentu. Mereka bisa menggunakan aturan konsensus: "Film yang mendapat suara terbanyak akan dipilih". Dalam blockchain, "voting" ini dilakukan secara otomatis melalui matematika dan kriptografi untuk memvalidasi transaksi dan menambahkan blok baru.
+        </p>
+
+        <h3>Mengapa Konsensus Sangat Penting?</h3>
+        <p>
+            Konsensus adalah jawaban atas masalah fundamental dalam sistem digital tanpa otoritas pusat: <strong>bagaimana mencegah penipuan?</strong>. Masalah terbesar yang diselesaikan adalah <strong>double spending</strong>, yaitu upaya untuk menghabiskan uang digital yang sama lebih dari satu kali. Tanpa mekanisme konsensus yang kuat, seseorang bisa mengirimkan 1 koin ke dua orang yang berbeda secara bersamaan, dan jaringan tidak akan tahu transaksi mana yang valid.
+        </p>
+        <p>
+            Protokol konsensus memastikan bahwa hanya satu versi kebenaran yang diakui oleh seluruh jaringan. Setiap blok baru yang ditambahkan harus disetujui oleh mayoritas jaringan sesuai aturan yang berlaku, membuat hampir mustahil bagi satu entitas untuk memanipulasi catatan.
+        </p>
+
+        <h3>Bagaimana Cara Kerjanya?</h3>
+        <p>
+            Meskipun ada banyak jenis algoritma konsensus, alur kerja umumnya adalah sebagai berikut:
+        </p>
+        <ol>
+            <li><strong>Transaksi Diajukan:</strong> Sebuah transaksi (misalnya, A mengirim 1 koin ke B) diumumkan ke seluruh jaringan.</li>
+            <li><strong>Validasi:</strong> Node-node (peserta jaringan) mengumpulkan transaksi-transaksi yang valid ke dalam kandidat blok baru.</li>
+            <li><strong>Kompetisi/Pemilihan:</strong> Node-node bersaing atau dipilih (tergantung algoritmanya) untuk mendapatkan hak menambahkan blok ini ke rantai.</li>
+            <li><strong>Penambahan:</strong> Node yang menang menambahkan blok baru ke rantainya dan mengumumkannya ke seluruh jaringan.</li>
+            <li><strong>Verifikasi:</strong> Node lain memverifikasi blok baru tersebut. Jika valid dan sesuai aturan, mereka akan menambahkannya ke salinan rantai mereka. Konsensus tercapai.</li>
+        </ol>
+
+        <h3>Jenis-Jenis Algoritma Konsensus</h3>
+        <p>
+            Ada banyak algoritma, tetapi dua yang paling terkenal adalah:
+        </p>
+        <ul>
+            <li><strong>Proof of Work (PoW):</strong> Digunakan oleh Bitcoin. Node-node (disebut "miner") bersaing untuk memecahkan teka-teki matematika yang sangat sulit. Miner pertama yang menemukan solusi mendapat hak menambahkan blok dan mendapat imbalan. Proses ini sangat aman tetapi membutuhkan daya komputasi dan energi listrik yang sangat besar.</li>
+            <li><strong>Proof of Stake (PoS):</strong> Digunakan oleh Ethereum dan banyak mata uang kripto lainnya. Alih-alih bersaing dalam komputasi, node-node (disebut "validator") dipilih untuk membuat blok baru berdasarkan jumlah koin yang mereka "pegang" dan "pertaruhkan" (stake) sebagai jaminan. Ini jauh lebih hemat energi daripada PoW.</li>
+        </ul>
+
+        <h3>Kesimpulan</h3>
+        <p>
+            Konsensus adalah jantung dari keamanan dan keandalan blockchain. Ini adalah mekanisme cerdas yang memungkinkan kepercayaan terbentuk dalam lingkungan yang tidak memercayai siapa pun, memastikan integritas data dan mencegah manipulasi tanpa perlu bank atau pemerintah sebagai perantara.
+        </p>
+
+        <a href="index.html#tab-consensus" class="card-action-button">Coba Simulasi Konsensus</a>
+    </div>
+</body>
+</html>

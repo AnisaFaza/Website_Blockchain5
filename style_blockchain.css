@@ -1,0 +1,625 @@
+/* style_blockchain.css */
+
+/* Import Google Font untuk judul yang menonjol */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=swap');
+
+/* --- 1. PALET WARNA & VARIABEL GLOBAL --- */
+:root {
+  --bg-main: #F4F4F4;                 /* Latar belakang utama */
+  --bg-card: #FFFFFF;                 /* Warna untuk kartu dan navbar */
+  --accent-primary: #E09F3E;          /* Warna aksen oranye/kuning */
+  --accent-secondary: #3D405B;         /* Warna teks gelap/abu-abu tua */
+  --text-primary: #333333;            /* Warna teks utama */
+  --text-secondary: #666666;          /* Warna teks sekunder, label */
+  --border-color: #E0E0E0;            /* Warna garis pembatas */
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* --- 2. GAYA DASAR & TYPOGRAFI --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --- 3. LAYOUT UTAMA (NAVBAR & HALAMAN) --- */
+
+/*header-container*/
+.judul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+/*gambar*/
+.gambar img{
+  max-width: 500px;
+  height: auto;
+  align-items: left;
+}
+
+/* Responsif untuk layar lebih kecil */
+@media (max-width: 768px) {
+  .judul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .judul h2 {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .gambar img {
+    max-width: 100%;
+  }
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--bg-card);
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar .nav-links {
+  display: flex;
+}
+
+.navbar button {
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: none;
+  padding: 1.25rem 1.5rem;
+  margin: 0;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Gaya untuk link di navbar agar mirip dengan tombol */
+.navbar-link {
+  background-color: transparent;
+  color: var(--text-secondary);
+  text-decoration: none; /* Hapus underline */
+  padding: 1.25rem 1.5rem;
+  margin: 0;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navbar-link:hover {
+  background-color: var(--accent-primary);
+  color: #FFFFFF;
+}
+
+/* Efek hover untuk tombol yang TIDAK aktif */
+.navbar button:not(.active):hover {
+  background-color: var(--accent-primary);
+  color: #FFFFFF;
+}
+
+/* Efek default untuk tombol yang sedang aktif */
+.navbar button.active {
+  color: var(--accent-primary);
+  font-weight: 600;
+  background-color: transparent;
+}
+
+/* Efek hover untuk tombol yang SEDANG AKTIF */
+.navbar button.active:hover {
+  background-color: var(--accent-primary);
+  color: #FFFFFF;
+}
+
+/* Wrapper untuk konten halaman */
+.page {
+  display: none;
+  padding: 2rem;
+  max-width: 1250px;
+  margin: 2rem auto;
+  flex: 1; /* Membuat konten utama memenuhi sisa ruang */
+}
+
+.page.active {
+  display: block;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- 4. KOMPONEN (FORM, TOMBOL, OUTPUT) --- */
+
+/* Gaya khusus untuk judul di halaman Home */
+#page-home h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 70px;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: none;
+  margin-bottom: 1rem;
+}
+
+.text{
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+/* Gaya default untuk judul lainnya */
+h2:not(#page-home h2) {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--accent-primary);
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.75rem;
+}
+
+h3 {
+  font-weight: 600;
+  color: var(--accent-secondary);
+  margin-bottom: 1rem;
+}
+
+/* Form Elemen */
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.25rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(224, 159, 62, 0.2);
+}
+
+textarea {
+  resize: vertical;
+  font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+}
+
+/* >>>>> PERUBAHAN: FORM LEBAR DI HALAMAN TERTENTU (TANPA BLOCKCHAIN) <<<<< */
+/* Membuat form input, textarea, dan select lebih lebar dan terpusat
+   di halaman Hash, Block, dan ECC Signature (Blockchain dikecualikan) */
+#page-hash input,
+#page-hash textarea,
+#page-hash select,
+#page-block input,
+#page-block textarea,
+#page-block select,
+#page-ecc input,
+#page-ecc textarea,
+#page-ecc select {
+  width: 800px; /* Lebar maksimum 800px */
+  margin: 1.25rem auto; /* Membuat elemen terpusat, dengan margin atas/bawah 1.25rem */
+}
+/* >>>>> AKHIR PERUBAHAN <<<<< */
+
+/* Tombol */
+button {
+  background-color: var(--accent-secondary);
+  color: #FFFFFF;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+button:hover {
+  background-color: #2c2f47;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.mine {
+  background-color: var(--accent-primary);
+  color: var(--text-primary);
+}
+
+.mine:hover {
+  background-color: #d18f2e;
+}
+
+/* >>>>> PERUBAHAN: JARAK TOMBOL SIGN MESSAGE <<<<< */
+#page-ecc #btn-sign {
+  margin-top: 0.25rem; /* Kurangi jarak atas */
+  margin-bottom: 0.75rem; /* Kurangi jarak bawah ke textarea */
+}
+/* >>>>> AKHIR PERUBAHAN <<<<< */
+
+.output, .status {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1.25rem;
+  font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+  word-break: break-all;
+  min-height: 50px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.03);
+}
+
+/* --- 5. LAYOUT KHUSUS HALAMAN --- */
+
+/* >>>>> PERUBAHAN: WALLET HORIZONTAL DI HALAMAN KONSENSUS <<<<< */
+.wallets {
+  display: flex; /* Menggunakan Flexbox untuk layout horizontal */
+  flex-wrap: wrap; /* Memungkinkan wallet pindah ke bawah jika layar terlalu sempit */
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  justify-content: flex-start; /* Menyelaraskan wallet ke kiri */
+}
+
+.wallet {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  /* Atur ukuran wallet agar tidak terlalu lebar */
+  flex: 1 1 300px; /* Bisa tumbuh/mengecil, dengan lebar dasar 300px */
+  max-width: 350px; /* Lebar maksimum agar tetap proporsional */
+}
+
+.wallet:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.wallet h3 {
+  margin-top: 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+/* >>>>> AKHIR PERUBAHAN <<<<< */
+
+/* >>>>> PERUBAHAN: HALAMAN BLOCKCHAIN - BLOCK SEBAGAI KOTAK HORIZONTAL <<<<< */
+.chain-container {
+  display: flex;
+  flex-wrap: nowrap; /* Memaksa semua block tetap di satu baris */
+  gap: 1.5rem;
+  overflow-x: auto; /* Tambahkan scrollbar horizontal jika konten melebihi lebar */
+  padding-bottom: 1rem; /* Beri jarak di bawah agar tidak menempel ke scrollbar */
+  margin-bottom: 2rem;
+  align-items: flex-start;
+}
+
+.blockchain-block {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  
+  /* Atur lebar tetap untuk layout horizontal yang konsisten */
+  flex: 0 0 320px; /* Tidak tumbuh/besar, tidak menyusut/kecil, lebar dasar 320px */
+}
+
+.blockchain-block:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  border-color: var(--accent-primary);
+}
+
+/* Gaya untuk elemen di dalam block */
+.blockchain-block h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--accent-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.blockchain-block label {
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
+}
+
+.blockchain-block textarea,
+.blockchain-block .output,
+.blockchain-block .status {
+  font-size: 0.85rem;
+  padding: 0.5rem;
+  margin-bottom: 0.75rem;
+  min-height: auto;
+}
+
+.blockchain-block button.mine {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+/* >>>>> AKHIR PERUBAHAN <<<<< */
+
+.chain-controls {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* Halaman Konsensus - Tampilan Chain per User */
+#chains {
+  margin-top: 2rem;
+}
+#chains h4 {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+/* >>>>> PERUBAHAN: LAYOUT HORIZONTAL UNTUK CHAIN KONSENSUS <<<<< */
+.chain-row {
+  display: flex;
+  flex-wrap: nowrap; /* Memaksa semua block tetap di satu baris */
+  gap: 10px;
+  overflow-x: auto; /* Tambahkan scrollbar horizontal jika konten melebihi lebar */
+  padding-bottom: 1rem; /* Beri jarak di bawah agar tidak menempel ke scrollbar */
+  margin-bottom: 2rem;
+  min-height: 80px;
+  padding: 1rem;
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  border: 1px dashed var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+/* >>>>> PERUBAHAN: STYLE UNTUK SETIAP BLOCK DI DALAM CHAIN KONSENSUS <<<<< */
+.chain-block {
+  flex: 0 0 280px; /* Lebar tetap, tidak akan tumbuh atau menyusut */
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Gaya untuk block yang tidak valid (setelah verifikasi) */
+.chain-block.invalid {
+  border-color: #E74C3C; /* Warna merah untuk border */
+  background-color: #FADBD8; /* Latar belakang merah muda */
+}
+
+/* Gaya untuk elemen kecil di dalam block konsensus */
+.chain-block .small {
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-secondary);
+}
+
+.chain-block .small strong {
+  color: var(--text-primary);
+}
+
+.chain-block textarea,
+.chain-block input {
+  font-size: 0.75rem;
+  padding: 0.4rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+}
+/* >>>>> AKHIR PERUBAHAN <<<<< */
+
+/* Home Page */
+#datetime {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+/* --- 6. KHUSUS: LAYOUT JUDUL & TIMESTAMP HALAMAN BLOCK --- */
+.page-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+.page-header h2 {
+  margin-bottom: 0.25rem;
+}
+.page-header .timestamp-display {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.page-header .timestamp-display label {
+  margin-bottom: 0;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+.page-header .timestamp-display input {
+  margin-bottom: 0;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+/* --- 7. GAYA UNTUK HALAMAN HOME (DAFTAR TOPIK) --- */
+
+.topics-list {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.topic-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.topic-box:hover {
+  transform: translateX(5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-primary);
+}
+
+.topic-box-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.topic-box-arrow {
+  font-size: 1.5rem;
+  color: var(--accent-primary);
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+.topic-box:hover .topic-box-arrow {
+  transform: translateX(3px);
+}
+
+/* --- 8. GAYA UNTUK FOOTER --- */
+
+footer {
+  background-color: var(--border-color);
+  color: var(--text-primary); /* PERBAIKAN: Menghapus tanda kurung tambahan */
+  padding: 1.5rem 2rem;
+  margin-top: auto; /* Mendorong footer ke bawah */
+  font-family: var(--font-family);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-logo {
+  height: 40px;
+  width: auto;
+}
+
+.footer-center {
+  text-align: justify;
+}
+
+.footer-center p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+.footer-center a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-center a:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+.footer-right {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Gaya tambahan untuk tombol aksi (misalnya di halaman About Me) */
+.card-action-button {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--accent-primary);
+  border: 2px solid var(--accent-primary);
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: none;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.card-action-button:hover {
+  background-color: var(--accent-primary);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}

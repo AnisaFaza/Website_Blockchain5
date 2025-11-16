@@ -1,0 +1,277 @@
+/* --- GAYA UNTUK HALAMAN CV --- */
+
+/* Impor Font & Variabel */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@600;700&display=swap');
+
+:root {
+    --primary-color: #3D405B;
+    --secondary-color: #E09F3E;
+    --background-color: #F4F4F4;
+    --white-color: #FFFFFF;
+    --text-color: #333333;
+    --light-gray: #e9ecef;
+    --border-color: #dee2e6;
+    --sidebar-width: 320px;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Kontainer Utama dengan Layout 2 Kolom */
+.cv-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background-color: var(--white-color);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* --- SIDEBAR (Kiri) --- */
+.cv-sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-header {
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    margin-bottom: 1rem;
+}
+
+.cv-sidebar h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+}
+
+.profile-title {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin: 0;
+}
+
+.cv-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cv-section h2 i {
+    font-size: 1rem;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-list li {
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.contact-list a {
+    color: var(--white-color);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.contact-list a:hover {
+    opacity: 0.8;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-tag {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+/* --- MAIN CONTENT (Kanan) --- */
+.cv-main {
+    flex: 1;
+    padding: 2.5rem 3rem;
+}
+
+.cv-main .cv-section {
+    margin-bottom: 2.5rem;
+}
+
+.cv-main .cv-section:last-child {
+    margin-bottom: 0;
+}
+
+.cv-main h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.experience-item, .education-item {
+    margin-bottom: 1.5rem;
+}
+
+.experience-item h3, .education-item h3 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin: 0 0 0.25rem 0;
+}
+
+.experience-info, .education-info {
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin: 0 0 0.25rem 0;
+}
+
+.experience-duration, .education-duration {
+    font-style: italic;
+    color: #666;
+    margin: 0 0 1rem 0;
+}
+
+.experience-item ul, .publication-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.experience-item li, .publication-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.experience-item li::before, .publication-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+/* --- TOMBOL AKSI --- */
+.action-buttons {
+    max-width: 1200px;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.back-button, .print-button {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.back-button {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.back-button:hover {
+    background-color: #2c2f47;
+    transform: translateY(-2px);
+}
+
+.print-button {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+}
+
+.print-button:hover {
+    background-color: #d18f2e;
+    transform: translateY(-2px);
+}
+
+/* --- RESPONSIF UNTUK MOBILE --- */
+@media (max-width: 768px) {
+    .cv-container {
+        flex-direction: column;
+    }
+
+    .cv-sidebar {
+        width: 100%;
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    .cv-main {
+        padding: 1.5rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+}
+
+/* --- GAYA UNTUK CETAK (PRINT) --- */
+@media print {
+    body {
+        background-color: var(--white-color);
+    }
+    
+    .cv-container {
+        box-shadow: none;
+        margin: 0;
+        max-width: 100%;
+    }
+
+    .action-buttons {
+        display: none; /* Sembunyikan tombol saat mencetak */
+    }
+    
+    .cv-main .cv-section {
+        page-break-inside: avoid; /* Hindari pemisahan halaman di tengah section */
+    }
+}
