@@ -17,7 +17,7 @@
             <div class="profile-header">
                 <img src="anisa faza.png" alt="Foto Profil" class="profile-img">
                 <h1>Anisa Faza</h1>
-                <p class="profile-title">Mahasiswa Tingkat Akhir, Teknologi Rekayasa Multimedia</p>
+                <p class="profile-title">Mahasiswa Teknologi Rekayasa Multimedia</p>
             </div>
 
             <div class="cv-section">
@@ -136,6 +136,55 @@
                     <li><strong>Penerima Beasiswa IISMA 2024</strong> - Program di Yuan Ze University, Taiwan</li>
                 </ul>
             </section>
+
+            <!-- Bagian Kontak Tambahan -->
+            <section class="cv-section contact-section">
+                <h2><i class="fas fa-envelope"></i> Hubungi Saya</h2>
+                <div class="contact-container">
+                    <div class="map-container">
+                        <h3>Lokasi</h3>
+                        <div class="map-frame">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.023394047849!2d112.7925645147744!3d-7.283632494742565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb9f5c6f4e1b%3A0x7d8c5b5c5c5c5c5c!2sPoliteknik%20Elektronika%20Negeri%20Surabaya!5e0!3m2!1sid!2sid!4v1626348420476!5m2!1sid!2sid" 
+                                width="100%" 
+                                height="300" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                        <div class="location-info">
+                            <p><i class="fas fa-map-marker-alt"></i> Sidoarjo, Jawa Timur, Indonesia</p>
+                            <p><i class="fas fa-phone"></i> 089612407209</p>
+                            <p><i class="fas fa-envelope"></i> anisafaza25@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-form-container">
+                        <h3>Kirim Pesan</h3>
+                        <form class="contact-form" action="https://formspree.io/f/xgvdwpen" method="post">
+                            <div class="form-group">
+                                <label for="name">Nama</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telepon</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Pesan</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Kirim Pesan</button>
+                            <!-- Tambahkan elemen ini untuk menampilkan pesan status -->
+                            <div id="form-status" class="form-status"></div>
+                        </form>
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
 
@@ -144,6 +193,58 @@
         <a href="index.html#about-me" class="back-button"><i class="fas fa-arrow-left"></i> Kembali ke Simulator</a>
         <button onclick="window.print()" class="print-button"><i class="fas fa-print"></i> Cetak / Simpan sebagai PDF</button>
     </div>
+
+    <!--Footer-->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-left">
+          <img src="Logo_PENS.png" alt="PENS Logo" class="footer-logo">
+          <span>Politeknik Elektronika Negeri Surabaya</span>
+        </div>
+        <div class="footer-center">
+          <p>Email: anisafaza25@gmail.com</p>
+          <p>Linkedin: <a href="https://www.linkedin.com/in/anisa-faza-6888b3298/" target="_blank">Anisa Faza</a></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript untuk Formulir Kontak -->
+    <script>
+        const form = document.querySelector('.contact-form');
+        const status = document.getElementById('form-status');
+
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault(); // Mencegah halaman reload
+
+            // Tampilkan pesan loading
+            status.innerHTML = '<p style="color: var(--secondary-color);"><i class="fas fa-spinner fa-spin"></i> Mengirim pesan...</p>';
+            status.classList.add('show');
+
+            const formData = new FormData(form);
+            const action = form.getAttribute('action');
+
+            try {
+                const response = await fetch(action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Tampilkan pesan sukses
+                    status.innerHTML = '<p style="color: green;"><i class="fas fa-check-circle"></i> Pesan Anda telah terkirim! Terima kasih.</p>';
+                    form.reset(); // Kosongkan formulir
+                } else {
+                    // Tampilkan pesan error
+                    status.innerHTML = '<p style="color: red;"><i class="fas fa-exclamation-circle"></i> Oops! Ada masalah saat mengirim pesan. Silakan coba lagi.</p>';
+                }
+            } catch (error) {
+                // Tampilkan pesan error koneksi
+                status.innerHTML = '<p style="color: red;"><i class="fas fa-exclamation-circle"></i> Oops! Ada masalah koneksi. Silakan coba lagi.</p>';
+            }
+        });
+    </script>
 
 </body>
 </html>
